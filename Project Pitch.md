@@ -1,0 +1,58 @@
+Shiny Application for Data Product Coursera
+========================================================
+author: Yi Xian
+
+Background
+========================================================
+
+This document shows the codes used to create the shiny application for the Coursera course on Data Products.
+
+The application allows users to convert inches to centimetres using the following formula.
+
+
+```r
+factor=2.54
+inch=1
+cm=inch*factor
+cm
+```
+
+```
+[1] 2.54
+```
+Every inch is equivalent to 2.54cm.
+
+
+ui.R
+========================================================
+
+library(shiny)
+
+shinyUI(fluidPage(    
+    h2("Inch to Centimetre Converter"),    
+    h3("This shiny application converts inches to centimetres."),
+    h3("Just input the number of inches that you would like to convert 
+       in the first box and click convert to get the equivalent amount in centimetres in the second box."),    
+    numericInput('value',label=h3("Inch"),1,
+                     min=0),
+    submitButton('Convert!'),    
+    h3('Centimetre'),
+    verbatimTextOutput("result")
+))
+
+server.R
+========================================================
+
+shinyServer(function(input, output) {
+    output$result <- renderPrint ({
+        input$value*2.54
+})
+}
+)
+
+Shiny Server
+========================================================
+
+You may access the application at
+http://yixianc.shinyapps.io/Project
+
