@@ -1,0 +1,3 @@
+This shiny application converts inches to centimetres.
+
+Just input the number of inches that you would like to convert in the first box and click convert to get the equivalent amount of centimetres in the second box.
